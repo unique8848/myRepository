@@ -1,0 +1,138 @@
+-- MySQL dump 10.13  Distrib 5.6.21, for osx10.8 (x86_64)
+--
+-- Host: localhost    Database: KCF
+-- ------------------------------------------------------
+-- Server version	5.6.21
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `KCF_FUNCTION`
+--
+
+DROP TABLE IF EXISTS `KCF_FUNCTION`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `KCF_FUNCTION` (
+  `ID` smallint(5) unsigned NOT NULL AUTO_INCREMENT,
+  `FUNC_NO` char(20) NOT NULL,
+  `FUNC_NAME` char(30) NOT NULL,
+  `PARENT_ID` smallint(5) unsigned NOT NULL,
+  `FUNC_SN` smallint(5) unsigned DEFAULT NULL,
+  `FUNC_DESC` char(100) DEFAULT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `KCF_ORGANIZATION`
+--
+
+DROP TABLE IF EXISTS `KCF_ORGANIZATION`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `KCF_ORGANIZATION` (
+  `ID` smallint(5) unsigned NOT NULL AUTO_INCREMENT,
+  `PARENT_ID` smallint(5) unsigned NOT NULL,
+  `ORG_SN` char(20) NOT NULL,
+  `ORG_NAME` char(50) NOT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `KCF_USER`
+--
+
+DROP TABLE IF EXISTS `KCF_USER`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `KCF_USER` (
+  `ID` smallint(5) unsigned NOT NULL AUTO_INCREMENT,
+  `ORG_ID` smallint(5) unsigned NOT NULL,
+  `USER_NAME` char(20) NOT NULL,
+  `USER_PWD` char(50) NOT NULL,
+  `LOGIN_NAME` char(20) NOT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB AUTO_INCREMENT=102 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `brands`
+--
+
+DROP TABLE IF EXISTS `brands`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `brands` (
+  `brand_id` smallint(5) unsigned NOT NULL AUTO_INCREMENT,
+  `brand_name` varchar(40) NOT NULL,
+  PRIMARY KEY (`brand_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `goods`
+--
+
+DROP TABLE IF EXISTS `goods`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `goods` (
+  `name` varchar(150) NOT NULL,
+  `cate_id` smallint(5) unsigned NOT NULL,
+  `brand_id` smallint(5) unsigned NOT NULL,
+  `price` decimal(15,3) unsigned DEFAULT '0.000',
+  `is_show` tinyint(1) DEFAULT '1',
+  `is_saleoff` tinyint(1) DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `goods_cates`
+--
+
+DROP TABLE IF EXISTS `goods_cates`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `goods_cates` (
+  `cate_id` smallint(5) unsigned NOT NULL AUTO_INCREMENT,
+  `cate_name` varchar(40) NOT NULL,
+  PRIMARY KEY (`cate_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `goods_types`
+--
+
+DROP TABLE IF EXISTS `goods_types`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `goods_types` (
+  `type_id` smallint(5) unsigned NOT NULL AUTO_INCREMENT,
+  `type_name` varchar(20) NOT NULL,
+  `parent_id` smallint(5) unsigned NOT NULL DEFAULT '0',
+  PRIMARY KEY (`type_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2015-01-04  0:18:51
