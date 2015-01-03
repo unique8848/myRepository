@@ -2,11 +2,11 @@ package com.ktw.kf.test;
 
 import com.ktw.kf.dao.OrganizationDao;
 import com.ktw.kf.model.Organization;
+import com.ktw.kf.util.SqlHelper;
 import junit.framework.TestCase;
 import org.junit.Test;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -25,19 +25,8 @@ public class OrganizationDaoTest extends TestCase {
     @Test
     public void testGetOrganizations() {
         List<Map<String, Object>> params = new ArrayList<Map<String, Object>>();
-
-        Map<String, Object> condition1 = new HashMap<String, Object>();
-        condition1.put("NAME", "ORG_SN");
-        condition1.put("RELA", "LIKE");
-        condition1.put("VALUE", "'%ORG_1%'");
-        params.add(condition1);
-
-        Map<String, Object> condition2 = new HashMap<String, Object>();
-        condition2.put("NAME", "ORG_NAME");
-        condition2.put("RELA", "LIKE");
-        condition2.put("VALUE", "'%ORG_1%'");
-        params.add(condition2);
-
+        params.add(SqlHelper.wrapCondition("ORG_SN", "LIKE", "'%ORG_1%'"));
+        params.add(SqlHelper.wrapCondition("ORG_NAME", "LIKE", "'%ORG_1%'"));
         List<Organization> orgs = OrganizationDao.getOrganizations(params);
         for (Organization o : orgs) {
             System.out.println(o.toString());

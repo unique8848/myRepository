@@ -3,11 +3,11 @@ package com.ktw.kf.test;
 
 import com.ktw.kf.dao.FunctionDao;
 import com.ktw.kf.model.Function;
+import com.ktw.kf.util.SqlHelper;
 import junit.framework.TestCase;
 import org.junit.Test;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -34,19 +34,8 @@ public class FunctionDaoTest extends TestCase {
     @Test
     public void testGetFunctions() {
         List<Map<String, Object>> params = new ArrayList<Map<String, Object>>();
-
-        Map<String, Object> condition1 = new HashMap<String, Object>();
-        condition1.put("NAME", "FUNC_NO");
-        condition1.put("RELA", "=");
-        condition1.put("VALUE", "'Func_6'");
-        params.add(condition1);
-
-        Map<String, Object> condition2 = new HashMap<String, Object>();
-        condition2.put("NAME", "FUNC_DESC");
-        condition2.put("RELA", "LIKE");
-        condition2.put("VALUE", "'This function is designed to%'");
-        params.add(condition2);
-
+        params.add(SqlHelper.wrapCondition("FUNC_NO", "=", "'Func_6'"));
+        params.add(SqlHelper.wrapCondition("FUNC_DESC", "LIKE", "'This function is designed to%'"));
         List<Function> funcs = FunctionDao.getFunctions(params);
         for (Function f : funcs) {
             System.out.println(f.toString());
