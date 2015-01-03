@@ -40,4 +40,14 @@ public class Organization {
     public void setOrgName(String orgName) {
         this.orgName = orgName;
     }
+
+    @Override
+    public String toString() {
+        return "Organization{" +
+                "id=" + id +
+                ", parentId=" + parentId +
+                ", orgSn='" + orgSn + '\'' +
+                ", orgName='" + orgName + '\'' +
+                '}';
+    }
 }
