@@ -2,6 +2,7 @@ package com.ktw.kf.dao;
 
 
 import com.ktw.kf.model.Organization;
+import com.ktw.kf.util.SqlHelper;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -33,15 +34,8 @@ public class OrganizationDao extends BaseDao {
         List<Organization> orgs = new ArrayList<Organization>();
         StringBuilder sb = new StringBuilder();
         sb.append("SELECT ID, PARENT_ID, ORG_SN, ORG_NAME FROM KF_ORG WHERE 1=1");
-        if (null != params && params.size() > 0) {
-            for (Map<String, Object> param : params) {
-                sb.append(" AND " + param.get("NAME") + " " + param.get("RELA") + " " + param.get("VALUE"));
-            }
-        }
-
         try {
-            PreparedStatement psmt = conn.prepareStatement(sb.toString());
-            System.out.println(sb.toString());
+            PreparedStatement psmt = conn.prepareStatement(SqlHelper.unWrapConditions(sb, params));
             ResultSet rs = psmt.executeQuery();
 
             Organization org = null;

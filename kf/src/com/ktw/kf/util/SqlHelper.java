@@ -1,6 +1,7 @@
 package com.ktw.kf.util;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -13,5 +14,14 @@ public class SqlHelper {
         resultCondition.put("RELA", relation);
         resultCondition.put("VALUE", value);
         return resultCondition;
+    }
+
+    public static String unWrapConditions(StringBuilder sbSql, List<Map<String, Object>> params) {
+        if (null != params && params.size() > 0) {
+            for (Map<String, Object> param : params) {
+                sbSql.append(" AND " + param.get("NAME") + " " + param.get("RELA") + " " + param.get("VALUE"));
+            }
+        }
+        return sbSql.toString();
     }
 }

@@ -2,6 +2,7 @@ package com.ktw.kf.dao;
 
 
 import com.ktw.kf.model.Function;
+import com.ktw.kf.util.SqlHelper;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -50,14 +51,8 @@ public class FunctionDao extends BaseDao {
         List<Function> funcs = new ArrayList<Function>();
         StringBuilder sb = new StringBuilder();
         sb.append("SELECT ID, PARENT_ID, FUNC_NO, FUNC_NAME, FUNC_SN, FUNC_DESC FROM KF_FUNC WHERE 1=1");
-        if (null != params && params.size() > 0) {
-            for (Map<String, Object> param : params) {
-                sb.append(" AND " + param.get("NAME") + " " + param.get("RELA") + " " + param.get("VALUE"));
-            }
-        }
-
         try {
-            PreparedStatement psmt = conn.prepareStatement(sb.toString());
+            PreparedStatement psmt = conn.prepareStatement(SqlHelper.unWrapConditions(sb, params));
             System.out.println(sb.toString());
             ResultSet rs = psmt.executeQuery();
 
