@@ -15,7 +15,7 @@ public class FunctionDaoTest extends TestCase {
 
     @Test
     public void testAddFunction() throws Exception {
-        Function f = new Function();
+        /*Function f = new Function();
         f.setParentId(0);
         f.setFuncNo("SYS_MGMT");
         f.setFuncName("System management");
@@ -56,7 +56,7 @@ public class FunctionDaoTest extends TestCase {
         f.setFuncNo("COMM_MGMT");
         f.setFuncName("Communication management");
         f.setFuncSn(70);
-        FunctionDao.addFunction(f);
+        FunctionDao.addFunction(f);*/
     }
 
     @Test
@@ -67,7 +67,7 @@ public class FunctionDaoTest extends TestCase {
     @Test
     public void testGetFunctions() {
         List<Map<String, Object>> params = new ArrayList<Map<String, Object>>();
-        params.add(SqlHelper.wrapCondition("FUNC_NO", "LIKE", "'%comm%'"));
+        params.add(SqlHelper.wrapCondition("FUNC_NO", "LIKE", "'%COMM%'"));
 //        params.add(SqlHelper.wrapCondition("FUNC_DESC", "LIKE", "'This function is designed to%'"));
         List<Function> funcs = FunctionDao.getFunctions(params);
         for (Function f : funcs) {

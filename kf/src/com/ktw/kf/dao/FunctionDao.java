@@ -19,7 +19,7 @@ public class FunctionDao extends BaseDao {
                 "(PARENT_ID, FUNC_NO, FUNC_NAME, FUNC_SN, FUNC_DESC) " +
                 "VALUES (?, ?, ?, ?, ?)";
         try {
-            PreparedStatement psmt = conn.prepareStatement(strSql);
+            PreparedStatement psmt = DBUtil2.getConnection().prepareStatement(strSql);
             psmt.setInt(1, f.getParentId());
             psmt.setString(2, f.getFuncNo());
             psmt.setString(3, f.getFuncName());
@@ -51,7 +51,7 @@ public class FunctionDao extends BaseDao {
         StringBuilder sb = new StringBuilder();
         sb.append("SELECT ID, PARENT_ID, FUNC_NO, FUNC_NAME, FUNC_SN, FUNC_DESC FROM KF_FUNC WHERE 1=1");
         try {
-            PreparedStatement psmt = conn.prepareStatement(SqlHelper.unWrapConditions(sb, params));
+            PreparedStatement psmt = DBUtil2.getConnection().prepareStatement(SqlHelper.unWrapConditions(sb, params));
             ResultSet rs = psmt.executeQuery();
 
             Function func = null;
