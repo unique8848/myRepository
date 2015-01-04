@@ -67,7 +67,7 @@ public class FunctionDaoTest extends TestCase {
     @Test
     public void testGetFunctions() {
         List<Map<String, Object>> params = new ArrayList<Map<String, Object>>();
-        params.add(SqlHelper.wrapCondition("FUNC_NO", "LIKE", "'%COMM%'"));
+        params.add(SqlHelper.wrapCondition("FUNC_NO", "LIKE", "'%M%'"));
 //        params.add(SqlHelper.wrapCondition("FUNC_DESC", "LIKE", "'This function is designed to%'"));
         List<Function> funcs = FunctionDao.getFunctions(params);
         for (Function f : funcs) {

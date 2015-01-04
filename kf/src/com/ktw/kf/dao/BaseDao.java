@@ -1,11 +1,14 @@
 package com.ktw.kf.dao;
 
+import com.ktw.kf.db.ConnectorFactory;
 import com.ktw.kf.db.DBUtil;
+import com.ktw.kf.db.IConnector;
+
 import java.sql.Connection;
 
 /**
  * Created by kevin on 12/30/14.
  */
 public abstract class BaseDao {
-    protected static Connection conn = DBUtil.getConnection();
+    protected static Connection conn = ConnectorFactory.getMysqlConnector().getConnection();
 }
