@@ -17,7 +17,7 @@ public class DBUtil2 {
     static {
         try {
             Class.forName("org.h2.Driver");
-            conn = DriverManager.getConnection("jdbc:h2:D:\\projects\\github\\myRepository\\kf\\db\\h2", "sa", "");
+            conn = DriverManager.getConnection("jdbc:h2:..//..//..//db//h2", "sa", "");
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         } catch (SQLException e) {
@@ -28,8 +28,8 @@ public class DBUtil2 {
     public static Connection getConnection() {
         if (conn == null) {
             try {
-                Class.forName("com.mysql.jdbc.Driver");
-                conn = DriverManager.getConnection("jdbc:h2:D:\\projects\\github\\myRepository\\kf\\db\\h2", "sa", "");
+                Class.forName("org.h2.Driver");
+                conn = DriverManager.getConnection("jdbc:h2:..//..//..//db//h2", "sa", "");
             } catch (ClassNotFoundException e) {
                 e.printStackTrace();
             } catch (SQLException e) {
