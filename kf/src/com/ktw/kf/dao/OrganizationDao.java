@@ -30,6 +30,26 @@ public class OrganizationDao extends BaseDao {
         }
     }
 
+    public static Organization getOrganizationByName(String strName) {
+        Organization o = null;
+        String strSql = "SELECT ID, PARENT_ID, ORG_SN, ORG_NAME FROM KF.KF_ORG WHERE 1=1 AND ORG_NAME = ?";
+        try {
+            PreparedStatement psmt = conn.prepareStatement(strSql);
+            psmt.setString(1, strName);
+            ResultSet rs = psmt.executeQuery();
+            if (rs.next()) {
+                o = new Organization();
+                o.setId(rs.getInt("ID"));
+                o.setParentId(rs.getInt("PARENT_ID"));
+                o.setOrgSn(rs.getString("ORG_SN"));
+                o.setOrgName(rs.getString("ORG_NAME"));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return o;
+    }
+
     public static List<Organization> getOrganizations(List<Map<String, Object>> params) {
         List<Organization> orgs = new ArrayList<Organization>();
         StringBuilder sb = new StringBuilder();

@@ -2,7 +2,6 @@ package com.ktw.kf.test;
 
 import com.ktw.kf.dao.OrganizationDao;
 import com.ktw.kf.model.Organization;
-import com.ktw.kf.util.Relation;
 import com.ktw.kf.util.SqlHelper;
 import junit.framework.TestCase;
 import org.junit.Test;
@@ -14,13 +13,36 @@ import java.util.Map;
 public class OrganizationDaoTest extends TestCase {
     @Test
     public void testAddOrganization() throws Exception {
-        Organization o = new Organization();
-        for (int i = 0; i < 20; i++) {
-            o.setParentId(1);
-            o.setOrgSn("org_" + i);
-            o.setOrgName("org_" + i);
-            OrganizationDao.addOrganization(o);
-        }
+        /*Organization o = new Organization();
+        o.setParentId(0);
+        o.setOrgSn("ktw");
+        o.setOrgName("DreamTech headquarter");
+        OrganizationDao.addOrganization(o);
+
+        o.setParentId(OrganizationDao.getOrganizationByName("DreamTech headquarter").getId());
+        o.setOrgSn("sales");
+        o.setOrgName("Sales department");
+        OrganizationDao.addOrganization(o);
+
+        o.setParentId(OrganizationDao.getOrganizationByName("DreamTech headquarter").getId());
+        o.setOrgSn("dev");
+        o.setOrgName("Develpment department");
+        OrganizationDao.addOrganization(o);
+
+        o.setParentId(OrganizationDao.getOrganizationByName("DreamTech headquarter").getId());
+        o.setOrgSn("legal");
+        o.setOrgName("Legal department");
+        OrganizationDao.addOrganization(o);
+
+        o.setParentId(OrganizationDao.getOrganizationByName("DreamTech headquarter").getId());
+        o.setOrgSn("market");
+        o.setOrgName("Market department");
+        OrganizationDao.addOrganization(o);
+
+        o.setParentId(OrganizationDao.getOrganizationByName("DreamTech headquarter").getId());
+        o.setOrgSn("financial");
+        o.setOrgName("Financial department");
+        OrganizationDao.addOrganization(o);*/
     }
 
     @Test
