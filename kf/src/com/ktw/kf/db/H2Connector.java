@@ -8,6 +8,9 @@ import java.sql.SQLException;
  * Created by kevin on 1/4/15.
  */
 public class H2Connector implements IConnector {
+    private static final String URL = "jdbc:mysql://localhost:3306/kf";
+    private static final String USER_NAME = "root";
+    private static final String PASSWORD = "jsf";
     private static Connection conn = null;
 
     private H2Connector() {
@@ -25,7 +28,7 @@ public class H2Connector implements IConnector {
     public Connection getConnection() {
         try {
             Class.forName("org.h2.Driver");
-            conn = DriverManager.getConnection("jdbc:h2:..//..//..//db//h2", "sa", "");
+            conn = DriverManager.getConnection(URL, USER_NAME, PASSWORD);
         } catch (ClassNotFoundException e) {
             System.out.println("Error: H2 driver malfunction.");
         } catch (SQLException e) {

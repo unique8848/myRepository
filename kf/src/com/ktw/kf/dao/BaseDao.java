@@ -1,8 +1,6 @@
 package com.ktw.kf.dao;
 
 import com.ktw.kf.db.ConnectorFactory;
-import com.ktw.kf.db.DBUtil;
-import com.ktw.kf.db.IConnector;
 
 import java.sql.Connection;
 

@@ -8,6 +8,9 @@ import java.sql.SQLException;
  * Created by kevin on 1/4/15.
  */
 public class MysqlConnector implements IConnector {
+    private static final String URL = "jdbc:mysql://localhost:3306/kf";
+    private static final String USER_NAME = "root";
+    private static final String PASSWORD = "jsf";
     private static Connection conn = null;
 
     private MysqlConnector() {
@@ -25,7 +28,7 @@ public class MysqlConnector implements IConnector {
     public Connection getConnection() {
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/kf", "root", "jsf");
+            conn = DriverManager.getConnection(URL, USER_NAME, PASSWORD);
         } catch (ClassNotFoundException e) {
             System.out.println("Error: Mysql driver malfunction.");
         } catch (SQLException e) {
