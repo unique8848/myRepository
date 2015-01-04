@@ -1,8 +1,6 @@
 package com.ktw.kf.dao;
 
-
 import com.ktw.kf.db.DBUtil;
-
 import java.sql.Connection;
 
 /**

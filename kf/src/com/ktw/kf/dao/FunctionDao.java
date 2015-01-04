@@ -1,9 +1,8 @@
 package com.ktw.kf.dao;
 
-
+import com.ktw.kf.db.DBUtil2;
 import com.ktw.kf.model.Function;
 import com.ktw.kf.util.SqlHelper;
-
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -36,7 +35,7 @@ public class FunctionDao extends BaseDao {
         String strSql = "UPDATE KF_FUNC";
     }
 
-    public static void deleteFunction(int id) {
+    public static void deleteFunctionById(int id) {
         String strSql = "DELETE FROM KF_FUNC WHERE ID = ?";
         try {
             PreparedStatement psmt = conn.prepareStatement(strSql);
@@ -53,7 +52,6 @@ public class FunctionDao extends BaseDao {
         sb.append("SELECT ID, PARENT_ID, FUNC_NO, FUNC_NAME, FUNC_SN, FUNC_DESC FROM KF_FUNC WHERE 1=1");
         try {
             PreparedStatement psmt = conn.prepareStatement(SqlHelper.unWrapConditions(sb, params));
-            System.out.println(sb.toString());
             ResultSet rs = psmt.executeQuery();
 
             Function func = null;

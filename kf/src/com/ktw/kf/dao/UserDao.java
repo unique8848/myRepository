@@ -16,10 +16,10 @@ public class UserDao extends BaseDao {
                 "(?, ?, ?, ?)";
         try {
             PreparedStatement psmt = conn.prepareStatement(strSql);
-            psmt.setInt(1, 1);
+            psmt.setInt(1, u.getOrgId());
             psmt.setString(2, u.getUserName());
             psmt.setString(3, u.getUserPwd());
-            psmt.setString(4, u.getUserName());
+            psmt.setString(4, u.getLoginName());
             psmt.execute();
         } catch (SQLException e) {
             e.printStackTrace();
