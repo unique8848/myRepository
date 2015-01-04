@@ -3,6 +3,7 @@ package com.ktw.kf.test;
 
 import com.ktw.kf.dao.FunctionDao;
 import com.ktw.kf.model.Function;
+import com.ktw.kf.util.Relation;
 import com.ktw.kf.util.SqlHelper;
 import junit.framework.TestCase;
 import org.junit.Test;
