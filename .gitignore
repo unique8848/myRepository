@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 #################
 ## Eclipse
 #################
@@ -214,3 +215,18 @@ pip-log.txt
 
 #Mr Developer
 .mr.developer.cfg
+=======
+*.class
+>>>>>>> Stashed changes
+
+*.class
+
+*.iml
+
+/bower_components/
+angular.xcodeproj
+.idea
++*.iml
+.agignore
+libpeerconnection.log
+npm-debug.log
