@@ -8,9 +8,10 @@ import java.sql.SQLException;
  * Created by kevin on 1/4/15.
  */
 public class H2Connector implements IConnector {
-    private static final String URL = "jdbc:mysql://localhost:3306/kf";
-    private static final String USER_NAME = "root";
-    private static final String PASSWORD = "jsf";
+    //private static final String URL = "jdbc:h2:D:\\projects\\github\\myRepository\\kf\\db\\h2";
+    private static final String URL = "jdbc:h2:D:\\projects\\github\\myRepository\\kf\\db\\h2\\h2";
+    private static final String USER_NAME = "sa";
+    private static final String PASSWORD = "";
     private static Connection conn = null;
 
     private H2Connector() {

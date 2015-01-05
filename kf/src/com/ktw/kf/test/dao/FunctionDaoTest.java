@@ -1,4 +1,4 @@
-package com.ktw.kf.test;
+package com.ktw.kf.test.dao;
 
 
 import com.ktw.kf.dao.FunctionDao;
@@ -15,7 +15,7 @@ public class FunctionDaoTest extends TestCase {
 
     @Test
     public void testAddFunction() throws Exception {
-        /*Function f = new Function();
+        Function f = new Function();
         f.setParentId(0);
         f.setFuncNo("SYS_MGMT");
         f.setFuncName("System management");
@@ -56,7 +56,7 @@ public class FunctionDaoTest extends TestCase {
         f.setFuncNo("COMM_MGMT");
         f.setFuncName("Communication management");
         f.setFuncSn(70);
-        FunctionDao.addFunction(f);*/
+        FunctionDao.addFunction(f);
     }
 
     @Test

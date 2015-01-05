@@ -1,8 +1,8 @@
 package com.ktw.kf.dao;
 
-import com.ktw.kf.db.DBUtil2;
 import com.ktw.kf.model.Function;
 import com.ktw.kf.util.SqlHelper;
+
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;

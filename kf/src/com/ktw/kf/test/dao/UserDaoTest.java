@@ -1,9 +1,5 @@
-package com.ktw.kf.test;
+package com.ktw.kf.test.dao;
 
-import com.ktw.kf.dao.OrganizationDao;
-import com.ktw.kf.dao.UserDao;
-import com.ktw.kf.model.Organization;
-import com.ktw.kf.model.User;
 import junit.framework.TestCase;
 import org.junit.After;
 import org.junit.Before;
@@ -68,7 +64,7 @@ public class UserDaoTest extends TestCase {
     }
 
     @Test
-    public void testGetUsers() throws Exception{
+    public void testGetUsers() throws Exception {
 
     }
 }

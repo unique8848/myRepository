@@ -7,6 +7,6 @@ import java.sql.Connection;
  */
 public class ConnectionManager {
     public static Connection getConnection() {
-        return ConnectorFactory.getMysqlConnector().getConnection();
+        return ConnectorFactory.getH2Connector().getConnection();
     }
 }

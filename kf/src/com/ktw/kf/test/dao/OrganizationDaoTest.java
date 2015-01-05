@@ -1,4 +1,4 @@
-package com.ktw.kf.test;
+package com.ktw.kf.test.dao;
 
 import com.ktw.kf.dao.OrganizationDao;
 import com.ktw.kf.model.Organization;
